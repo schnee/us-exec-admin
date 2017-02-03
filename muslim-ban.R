@@ -21,9 +21,9 @@ write_csv(protoDF, "./protoDF.csv")
 
 # at this point I manually cleaned the CSV, removing wikipedia annotation reference, range
 # markers (I always selected the high-side), and other non-numeric elements.
-# saved as protoDF-cleaned.csv
+# saved as islamic-nations.csv
 
-newDF <- read_csv("./protoDF-cleaned.csv")
+newDF <- read_csv("./islamic-nations.csv")
 newDF$Muslim <- as.numeric(gsub(",", "", newDF$Muslim))
 
 newDF <- newDF %>% mutate(nonMuslim = floor(Muslim / (countryPCT/100)))
