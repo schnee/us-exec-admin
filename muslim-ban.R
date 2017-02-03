@@ -46,7 +46,8 @@ ggplot(newDF %>% top_n(40,countryPCT) , aes(Country, y=countryPCT, fill=isAmeric
   theme_few() + 
   theme(axis.text.x = element_text(angle=60,hjust=1)) + 
   labs(
-    title = str_wrap("PROTECTING THE NATION FROM FOREIGN TERRORIST ENTRY INTO THE UNITED STATES",wrap)
+    title = str_wrap("PROTECTING THE NATION FROM FOREIGN TERRORIST ENTRY INTO THE UNITED STATES",wrap),
+    caption = paste("Data from",url)
   ) + scale_fill_brewer(name="America Is (Temporarily)\nProtected From This\nCountry", palette = "Dark2")
 
 ggsave(filename = "top40-safe.png", width = 12, height = 8, units = "in", dpi = 72)
@@ -56,7 +57,8 @@ ggplot(newDF, aes(Country, y=countryPCT, fill=isAmericaSafeFrom)) +
   theme_few() + 
   theme(axis.text.x = element_blank()) + 
   labs(
-    title = str_wrap("PROTECTING THE NATION FROM FOREIGN TERRORIST ENTRY INTO THE UNITED STATES",wrap)
+    title = str_wrap("PROTECTING THE NATION FROM FOREIGN TERRORIST ENTRY INTO THE UNITED STATES",wrap),
+    caption = paste("Data from",url)
   ) + scale_fill_brewer(name="America Is (Temporarily)\nProtected From This\nCountry", palette = "Dark2")
 
 ggsave(filename = "all-safe.png", width = 12, height=8, units = "in", dpi = 72)
